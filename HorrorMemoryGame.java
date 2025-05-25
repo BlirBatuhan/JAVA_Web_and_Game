@@ -22,6 +22,7 @@ public class HorrorMemoryGame extends JFrame {
     private ImageIcon backImage;
     private int currentLevel = 1;
     private JPanel menuPanel;
+    private HorrorCursor horrorCursor;
 
     private class Card extends JButton {
         private int imageIndex;
@@ -37,6 +38,7 @@ public class HorrorMemoryGame extends JFrame {
             setContentAreaFilled(false);
             setOpaque(true);
             setIcon(backImage);
+            setCursor(horrorCursor.getCustomCursor());
             addActionListener(e -> flipCard());
         }
 
@@ -71,6 +73,10 @@ public class HorrorMemoryGame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setLocationRelativeTo(null);
+
+        // Özel imleci başlat
+        horrorCursor = new HorrorCursor();
+        setCursor(horrorCursor.getCustomCursor());
 
         createMenuPanel();
         loadImages();
@@ -128,6 +134,7 @@ public class HorrorMemoryGame extends JFrame {
         button.setForeground(Color.WHITE);
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setFocusPainted(false);
+        button.setCursor(horrorCursor.getCustomCursor());
         return button;
     }
 

@@ -24,12 +24,17 @@ public class HorrorMazeGame extends JFrame {
     private Random random;
     private int currentLevel = 1;
     private static final int TOTAL_LEVELS = 5;
+    private HorrorCursor horrorCursor;
     
     public HorrorMazeGame() {
         setTitle("Korku Labirenti");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 600);
         setLocationRelativeTo(null);
+        
+        // Özel imleci başlat
+        horrorCursor = new HorrorCursor();
+        setCursor(horrorCursor.getCustomCursor());
         
         random = new Random();
         setupUI();
@@ -44,6 +49,7 @@ public class HorrorMazeGame extends JFrame {
         // Üst panel
         JPanel topPanel = new JPanel(new GridLayout(2, 1));
         topPanel.setBackground(Color.BLACK);
+        topPanel.setCursor(horrorCursor.getCustomCursor());
         
         // Seviye göstergesi
         levelLabel = new JLabel("Bölüm: 1/" + TOTAL_LEVELS);
@@ -71,6 +77,7 @@ public class HorrorMazeGame extends JFrame {
         };
         mazePanel.setPreferredSize(new Dimension(MAZE_WIDTH * CELL_SIZE, MAZE_HEIGHT * CELL_SIZE));
         mazePanel.setBackground(Color.BLACK);
+        mazePanel.setCursor(horrorCursor.getCustomCursor());
         add(mazePanel, BorderLayout.CENTER);
         
         // Klavye kontrolü

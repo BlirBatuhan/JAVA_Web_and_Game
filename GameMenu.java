@@ -6,12 +6,16 @@ import java.io.File;
 
 public class GameMenu extends JFrame {
     private Clip menuMusic;
+    private HorrorCursor horrorCursor;
     
     public GameMenu() {
         setTitle("Korku Oyunları");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 400);
         setLocationRelativeTo(null);
+        
+        // Özel imleci başlat
+        horrorCursor = new HorrorCursor();
         
         // Arka plan müziğini başlat
         loadMenuMusic();
@@ -59,6 +63,9 @@ public class GameMenu extends JFrame {
                 stopMenuMusic();
             }
         });
+        
+        // Özel imleci ayarla
+        setCursor(horrorCursor.getCustomCursor());
     }
     
     private void loadMenuMusic() {
@@ -87,7 +94,7 @@ public class GameMenu extends JFrame {
         button.setFont(new Font("Arial", Font.BOLD, 20));
         button.setFocusPainted(false);
         button.setBorderPainted(false);
-        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        button.setCursor(horrorCursor.getCustomCursor());
         
         // Hover efekti
         button.addMouseListener(new MouseAdapter() {

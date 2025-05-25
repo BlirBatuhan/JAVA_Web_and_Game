@@ -16,12 +16,17 @@ public class ReactionGame extends JFrame {
     private int attemptCount = 0;
     private Clip winSound, loseSound, retrySound;
     private double lastReactionTime = 0;
+    private HorrorCursor horrorCursor;
     
     public ReactionGame() {
         setTitle("Refleks Oyunu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
         setLocationRelativeTo(null);
+        
+        // Özel imleci başlat
+        horrorCursor = new HorrorCursor();
+        setCursor(horrorCursor.getCustomCursor());
         
         // Sesleri yükle
         loadSounds();
@@ -30,10 +35,12 @@ public class ReactionGame extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         mainPanel.setBackground(Color.BLACK);
+        mainPanel.setCursor(horrorCursor.getCustomCursor());
         
         // Skor paneli
         JPanel scorePanel = new JPanel();
         scorePanel.setBackground(Color.BLACK);
+        scorePanel.setCursor(horrorCursor.getCustomCursor());
         reactionLabel = new JLabel("Reaksiyon Süresi: --");
         timeLabel = new JLabel("Durum: Hazırlan... (Deneme: 1/5)");
         reactionLabel.setForeground(Color.WHITE);
@@ -51,11 +58,13 @@ public class ReactionGame extends JFrame {
         targetButton.setForeground(Color.WHITE);
         targetButton.setFocusPainted(false);
         targetButton.setBorderPainted(false);
+        targetButton.setCursor(horrorCursor.getCustomCursor());
         
         // Oyun alanı
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(new GridBagLayout());
         gamePanel.setBackground(Color.BLACK);
+        gamePanel.setCursor(horrorCursor.getCustomCursor());
         gamePanel.add(targetButton);
         
         // Buton tıklama olayı
@@ -95,6 +104,7 @@ public class ReactionGame extends JFrame {
         backButton.setBackground(new Color(150, 0, 0));
         backButton.setForeground(Color.WHITE);
         backButton.setFont(new Font("Arial", Font.BOLD, 16));
+        backButton.setCursor(horrorCursor.getCustomCursor());
         backButton.addActionListener(e -> {
             dispose();
             new GameMenu().setVisible(true);

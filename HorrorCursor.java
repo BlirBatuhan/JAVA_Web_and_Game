@@ -3,43 +3,23 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
-public class HorrorCursor extends JFrame {
+public class HorrorCursor {
     private BufferedImage cursorImage;
     private Cursor customCursor;
-    private JPanel panel;
     private Timer animationTimer;
     private float glowIntensity = 0.0f;
     private boolean increasing = true;
 
     public HorrorCursor() {
-        setTitle("Korku Temalı İmleç");
-        setSize(800, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-
-        // Panel oluştur
-        panel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                setBackground(Color.BLACK);
-            }
-        };
-        add(panel);
-
         // Animasyon zamanlayıcısını başlat
         animationTimer = new Timer(50, e -> {
             updateGlow();
             createHorrorCursor();
-            panel.setCursor(customCursor);
         });
         animationTimer.start();
 
         // Özel imleç oluştur
         createHorrorCursor();
-        
-        // İmleci ayarla
-        panel.setCursor(customCursor);
     }
 
     private void updateGlow() {
@@ -97,9 +77,7 @@ public class HorrorCursor extends JFrame {
             cursorImage, hotSpot, "Horror Cursor");
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new HorrorCursor().setVisible(true);
-        });
+    public Cursor getCustomCursor() {
+        return customCursor;
     }
 } 
