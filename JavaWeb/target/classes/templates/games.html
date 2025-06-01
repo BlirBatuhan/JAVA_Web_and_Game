@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Oyunlar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .download-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        .download-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+        .download-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .download-description {
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .download-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .download-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .system-requirements {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        .system-requirements h2 {
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .requirements-list li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .requirements-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Ana Sayfaya Dön</a>
+        
+        <div class="header">
+            <h1>Oyunlar</h1>
+        </div>
+        
+        <div class="download-section">
+            <div class="download-icon">🎮</div>
+            <h2 class="download-title">Masaüstü Oyun Uygulaması</h2>
+            <p class="download-description">
+                Tüm oyunlarımıza erişmek için masaüstü uygulamamızı indirin. 
+                Uygulamamız ile en yeni oyunlara anında erişebilir, arkadaşlarınızla oynayabilir 
+                ve skorlarınızı paylaşabilirsiniz.
+            </p>
+            <a href="/games/download/game-client" class="download-button">Uygulamayı İndir</a>
+            
+            <div class="system-requirements">
+                <h2>Sistem Gereksinimleri</h2>
+                <ul class="requirements-list">
+                    <li>Windows 10 veya üzeri</li>
+                    <li>4GB RAM</li>
+                    <li>2GB boş disk alanı</li>
+                    <li>İnternet bağlantısı</li>
+                    <li>DirectX 11 uyumlu ekran kartı</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

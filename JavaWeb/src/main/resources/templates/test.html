@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test Sayfası</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .success {
+            color: green;
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Test Sayfası</h2>
+        <div th:if="${message}" class="success" th:text="${message}"></div>
+        <div th:if="${error}" class="error" th:text="${error}"></div>
+        
+        <p>Bu sayfa veritabanı işlemlerini test etmek için kullanılır.</p>
+        <p>Test kullanıcısı oluşturulduktan sonra H2 Console'da kontrol edebilirsiniz.</p>
+        
+        <a href="/h2-console" target="_blank">H2 Console'a Git</a>
+    </div>
+</body>
+</html> 
